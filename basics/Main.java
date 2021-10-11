@@ -5,8 +5,8 @@ public class Main {
    System.out.println("I own " + dogCount + " " + pluralize("dog", dogCount) + "."); 
    int catCount = 1;
    System.out.println("I own " + catCount + " " + pluralize("cat", catCount) + ".");
-   flipNHeads(1);
-   clock(); 
+   flipNHeads(3);
+   clock();
 }
   static String pluralize(String word, int num){
   if(num == 0 || num > 1)
@@ -47,4 +47,5 @@ if(second != now.getSecond()){
 
    }
   }
+
 }
