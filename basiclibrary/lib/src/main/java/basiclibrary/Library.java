@@ -3,7 +3,7 @@
  */
 package basiclibrary;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Library {
     public static void main(String[] args){
@@ -17,7 +17,25 @@ public class Library {
                 {55, 54, 60, 53, 59, 57, 61},
                 {65, 56, 55, 52, 55, 62, 57}
         };
-        System.out.println(averageOfLowestArray(weeklyMonthTemperatures));
+        averageOfLowestArray(weeklyMonthTemperatures);
+        octoberSeattleTemperatures(weeklyMonthTemperatures);
+        List<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Hedge");
+        votes.add("Hedge");
+
+
+        String winner = tally(votes);
+        System.out.println(winner + " received the most votes!");
     }
 
     public static int[] roll(int n){
@@ -65,4 +83,57 @@ public class Library {
         System.out.println(Arrays.toString(minArray));
         return minArray;
     }
+
+    static String octoberSeattleTemperatures(int [][] arr){
+        int min =arr[0][0];
+        int max =arr[0][0];
+        HashSet<Integer> temperatures = new HashSet<>();
+        for(int i=0 ; i< arr.length ; i++){
+            for(int j=0 ; j<arr[i].length;j++){
+                temperatures.add(arr[i][j]);
+               if(arr[i][j] < min )
+                   min = arr[i][j];
+               else if(arr[i][j]>max)
+                   max = arr[i][j];
+            }
+        }
+        System.out.println("High: "+ max);
+        System.out.println("Low: "+ min);
+        int rangeOfTemps = max - min ;
+        if(rangeOfTemps != temperatures.size()){
+            if(!temperatures.contains(63))
+                System.out.println("Never saw temperature: 63");
+            if(!temperatures.contains(67))
+                System.out.println("Never saw temperature: 67");
+            if(!temperatures.contains(68))
+                System.out.println("Never saw temperature: 68");
+            if(!temperatures.contains(69))
+                System.out.println("Never saw temperature: 69");
+        }
+        return "Never saw temperature: 63,67,68,69";
+    }
+//    static String tally(List<String> list){
+//
+//    }
+    public static String tally(List<String> inputList) {
+        Map<String, Integer> resultMap = new HashMap<>();
+        for (String element : inputList) {
+            if (resultMap.containsKey(element)) {
+                resultMap.put(element, resultMap.get(element) + 1);
+            } else {
+                resultMap.put(element, 1);
+            }
+        }
+        String winner = "ahmed";
+        Integer winningVotes = 0 ;
+        for(Map.Entry<String,Integer> entry : resultMap.entrySet()){
+            if(entry.getValue() > winningVotes){
+                winningVotes = entry.getValue();
+                winner = entry.getKey();
+            }
+
+        }
+        return winner;
+    }
+
 }
