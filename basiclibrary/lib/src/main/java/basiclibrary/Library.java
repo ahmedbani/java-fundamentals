@@ -55,16 +55,14 @@ public class Library {
 
     }
 
-    static double averageOfLowestArray(int [][] arr){
-        double [] averagesArray = new double[arr.length];
+    static int[] averageOfLowestArray(int [][] arr){
+
+        int [] minArray = arr[0];
         for (int i=0; i<arr.length ; i++){
-            averagesArray[i] = calculateAverage(arr[i]);
+            if( calculateAverage(arr[i]) <= calculateAverage(minArray))
+                minArray = arr[i];
         }
-        double min = averagesArray[0];
-        for (int i=1 ; i<averagesArray.length ; i++){
-            if(averagesArray[i]<= min)
-                min = averagesArray[i];
-        }
-        return min;
+        System.out.println(Arrays.toString(minArray));
+        return minArray;
     }
 }
