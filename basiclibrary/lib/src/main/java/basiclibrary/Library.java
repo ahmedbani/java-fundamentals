@@ -18,7 +18,7 @@ public class Library {
                 {65, 56, 55, 52, 55, 62, 57}
         };
         averageOfLowestArray(weeklyMonthTemperatures);
-        octoberSeattleTemperatures(weeklyMonthTemperatures);
+        System.out.println(octoberSeattleTemperatures(weeklyMonthTemperatures));
         List<String> votes = new ArrayList<>();
         votes.add("Bush");
         votes.add("Bush");
@@ -99,22 +99,16 @@ public class Library {
         }
         System.out.println("High: "+ max);
         System.out.println("Low: "+ min);
-        int rangeOfTemps = max - min ;
-        if(rangeOfTemps != temperatures.size()){
-            if(!temperatures.contains(63))
-                System.out.println("Never saw temperature: 63");
-            if(!temperatures.contains(67))
-                System.out.println("Never saw temperature: 67");
-            if(!temperatures.contains(68))
-                System.out.println("Never saw temperature: 68");
-            if(!temperatures.contains(69))
-                System.out.println("Never saw temperature: 69");
+        String tempsNotSeen = "Never saw temperature : ";
+        for (int i = min ; i<=max ;i++){
+            if(!temperatures.contains(i)){
+                System.out.println("Never saw temperature: "+ i);
+                tempsNotSeen+= " "+i;
+            }
         }
-        return "Never saw temperature: 63,67,68,69";
+        return tempsNotSeen;
     }
-//    static String tally(List<String> list){
-//
-//    }
+
     public static String tally(List<String> inputList) {
         Map<String, Integer> resultMap = new HashMap<>();
         for (String element : inputList) {
