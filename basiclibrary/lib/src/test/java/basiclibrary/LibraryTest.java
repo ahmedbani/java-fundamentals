@@ -50,7 +50,7 @@ public class LibraryTest {
                 {12,13,14},
                 {15,16,23}
         };
-        assertEquals("Never saw temperature: 63,67,68,69",testObjects.octoberSeattleTemperatures(weeklyMonthTemperatures));
+        assertEquals("Never saw temperature :  63 67 68 69",testObjects.octoberSeattleTemperatures(weeklyMonthTemperatures));
 
     }
 
