@@ -30,7 +30,7 @@ class LibraryTest {
     }
     @Test void testShop(){
         Shop funter = new Shop("funter","entertainment shop","$$");
-        assertEquals("Shop{name='funter', description='entertainment shop', priceCatagory='$$'}",funter.toString());
+        assertEquals("Shop{name='funter', description='entertainment shop', priceCatagory='$$', reviews=[]}",funter.toString());
     }
     @Test void testReviews(){
         Shop gameStop = new Shop("game stop", "gaming shop","$$$");
