@@ -28,4 +28,44 @@ class LibraryTest {
         newRestaurant.addReview(newReview);
         assertEquals(4.25,newRestaurant.getStarRating());
     }
+    @Test void testShop(){
+        Shop funter = new Shop("funter","entertainment shop","$$");
+        assertEquals("Shop{name='funter', description='entertainment shop', priceCatagory='$$'}",funter.toString());
+    }
+    @Test void testReviews(){
+        Shop gameStop = new Shop("game stop", "gaming shop","$$$");
+        Restaurant popeyes = new Restaurant("popeyes",4,"$$");
+        Review aliReview = new Review("doesnt have all the games","ali",3);
+        gameStop.addReview(aliReview);
+        Review marwaReview = new Review("they have the best fried chicken burger","maram",4);
+        popeyes.addReview(marwaReview);
+
+        assertTrue(gameStop.getReviews().contains(aliReview));
+        assertFalse(gameStop.getReviews().contains(marwaReview));
+        assertTrue(popeyes.getReviews().contains(marwaReview));
+    }
+    @Test void testTheater(){
+        Theater primeCinemas = new Theater("prime cinemas");
+        primeCinemas.addMovie("avengers");
+        primeCinemas.addMovie("vikings");
+        primeCinemas.addMovie("lol");
+        primeCinemas.removeMovie("venom");
+
+        assertFalse(primeCinemas.getMovies().contains("venom"));
+        assertTrue(primeCinemas.getMovies().contains("lol"));
+
+    }
+    @Test void testTheaterRreviews(){
+        Theater primeCinemas = new Theater("prime cinemas");
+        primeCinemas.addMovie("avengers");
+        primeCinemas.addMovie("vikings");
+        primeCinemas.addMovie("lol");
+
+        ReviewMovie randsReview = new ReviewMovie("the movie is over rated","rand",2.5,"avengers");
+        primeCinemas.addReview(randsReview);
+        assertEquals("Theater{name='prime cinemas', movies=[avengers, vikings, lol], reviews=[rating: 2.5, 'the movie is over rated', reviewed by 'rand']}",primeCinemas.toString());
+        ReviewMovie ahmedsReview = new ReviewMovie("the popcorn was on point","ahmed",5);
+        primeCinemas.addReview(ahmedsReview);
+        assertTrue(primeCinemas.getReviews().contains(ahmedsReview));
+    }
 }

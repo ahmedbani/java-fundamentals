@@ -26,6 +26,17 @@ public class Review {
         return rating;
     }
 
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
 
     @Override
     public String toString() {

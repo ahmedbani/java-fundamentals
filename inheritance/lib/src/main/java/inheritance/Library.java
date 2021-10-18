@@ -16,5 +16,33 @@ public class Library {
         Review newReview2 = new Review("this restaurant has good burgers","ahmed",3);
         newRestaurant.addReview(newReview2);
         System.out.println(newRestaurant.toString());
+
+        Shop funter = new Shop("funter","entertainment shop","$$");
+        System.out.println(funter.toString());
+
+        ReviewMe ahmed = new Shop("game stop", "gaming shop","$$$");
+        ReviewMe mcdonalds = new Restaurant("mcdonalds",4,"$$");
+
+        Review aliReview = new Review("doesnt have all the games","ali",3);
+        ahmed.addReview(aliReview);
+        Review marwaReview = new Review("the best fastfood ever","maram",4);
+        mcdonalds.addReview(marwaReview);
+
+        System.out.println(ahmed.toString());
+
+        Theater primeCinemas = new Theater("prime cinemas");
+        primeCinemas.addMovie("venom");
+        primeCinemas.addMovie("the wall between us");
+        System.out.println(primeCinemas.toString());
+        primeCinemas.removeMovie("lol");
+
+        primeCinemas.removeMovie("venom");
+        System.out.println(primeCinemas.toString());
+
+        ReviewMovie venom = new ReviewMovie("this movie is great","ahmed",4,"venom");
+
+
+
     }
+
 }
