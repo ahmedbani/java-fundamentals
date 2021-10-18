@@ -2,7 +2,7 @@ package inheritance;
 
 import java.util.ArrayList;
 
-public class Restaurant {
+public class Restaurant implements ReviewMe {
     private String name;
     private double starRating;
     private String  priceCategory ;
@@ -36,11 +36,14 @@ public class Restaurant {
 
     public void addReview(Review review){
         this.reviews.add(review);
-        double sum = starRating;
-        for (Review item: reviews) {
-            sum+= item.getRating();
+        if (reviews.contains(review)) {
+            double sum = starRating;
+            for (Review item : reviews) {
+                sum += item.getRating();
+            }
+            double x = reviews.size() + 1;
+            this.starRating = sum / x;
         }
-        double x =reviews.size() +1;
-        this.starRating = sum / x  ;
+        System.out.println("review added from restaurant class");
     }
 }
