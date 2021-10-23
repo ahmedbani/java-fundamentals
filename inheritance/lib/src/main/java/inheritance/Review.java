@@ -11,7 +11,9 @@ public class Review {
     public Review(String body , String author , double rating) {
         this.body = body;
         this.author =author;
-        this.rating = rating;
+        if (rating >= 0 && rating <= 5) {
+            this.rating = rating;
+        }else this.rating = 3;
     }
 
     public String getBody() {

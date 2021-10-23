@@ -14,7 +14,7 @@ public class Restaurant implements ReviewMe {
 
     public Restaurant(String name,double starRating,String priceCategory) {
         this.name = name;
-        this.starRating =starRating;
+        this.starRating =0;
         this.priceCategory = priceCategory;
     }
 
@@ -36,14 +36,17 @@ public class Restaurant implements ReviewMe {
 
     public void addReview(Review review){
         this.reviews.add(review);
-        if (reviews.contains(review)) {
-            double sum = starRating;
-            for (Review item : reviews) {
-                sum += item.getRating();
+        if(reviews.size() > 1) {
+            if (reviews.contains(review)) {
+                double sum = starRating;
+                for (Review item : reviews) {
+                    sum += item.getRating();
+                }
+                double x = reviews.size() + 1;
+                this.starRating = sum / x;
             }
-            double x = reviews.size() + 1;
-            this.starRating = sum / x;
         }
+        else starRating = review.getRating();
         System.out.println("review added from restaurant class");
     }
 }
